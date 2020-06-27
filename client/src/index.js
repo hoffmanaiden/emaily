@@ -7,6 +7,12 @@ import thunk from 'redux-thunk';
 import App from './components/App';
 import reducers from './reducers';
 
+// Development only
+// axios and window are needed to test api while
+// using OAuth (to get those cookies! 🍪🤤)
+import axios from 'axios';
+window.axios = axios;
+
 // root of Redux
 const store = createStore(reducers, {}, applyMiddleware(thunk))
 

@@ -1,0 +1,14 @@
+/* Survey Field Underline color */
+#root > div > div > div > div > form > div > input:focus{
+  border: none;
+  border-bottom: 2px solid red;
+  border-radius: 0.5px;
+  box-shadow: 0 1px 0 0 #ffffff;
+}
+#root > div > div > div > div > form > div > input{
+  margin-bottom: 5px;
+}
+
+.red-text{
+  margin-bottom: 20px;
+}
