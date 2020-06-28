@@ -1,3 +1,9 @@
 #root > div > div > nav > div > a {
   margin-left: 3%;
 }
+#root > div > div > div > div > span{
+  font-size: 75px;
+}
+#root > div > div > div > div > i {
+  margin-right: 15px;
+}
