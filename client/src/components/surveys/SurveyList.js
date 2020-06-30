@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+import './surveyStyle.css';
 import { fetchSurveys } from '../../actions';
 
 class SurveyList extends Component {
@@ -13,7 +14,7 @@ class SurveyList extends Component {
     return this.props.surveys
       .reverse()
       .map(survey => {
-        console.log(survey);
+        // console.log(survey);
         return (
           <div className="card" key={survey._id}>
             <div className="card-content">
@@ -24,6 +25,18 @@ class SurveyList extends Component {
               <p className="right">
                 {new Date(survey.dateSent).toLocaleDateString()}
               </p>
+              {/* <span>
+                <span>Yes</span>
+                <svg width="300" height="12">
+                  <rect
+                    x="0"
+                    y="0"
+                    fill="#2196f3"
+                    width="300"
+                    height="12"
+                  />
+                </svg>
+              </span> */}
               <p>
                 Yes votes: {survey.yes}
               </p>
@@ -45,10 +58,10 @@ class SurveyList extends Component {
   }
 }
 
+// this is REDUX state!
 function mapStateToProps({ surveys }) {
   return { surveys };
 }
-// this is REDUX state!
 // function mapStateToProps(state){
 //   return { surveys: state.surveys };
 // }
