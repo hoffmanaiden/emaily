@@ -25,7 +25,7 @@ class SurveyForm extends Component {
     return (
       <div>
         {/* handleSubmit() is provided by reduxForm */}
-        {/* onSurveySubmit() is provided by us in SurveyNews.js */}
+        {/* onSurveySubmit() is provided by us in SurveyNew.js */}
         <form onSubmit={this.props.handleSubmit(this.props.onSurveySubmit)}>
           {this.renderFields()}
           <button className="green btn-flat right white-text" type="submit" name="action">

@@ -14,7 +14,7 @@ class SurveyList extends Component {
     return this.props.surveys
       .reverse()
       .map(survey => {
-        // console.log(survey);
+        console.log(survey);
         return (
           <div className="card" key={survey._id}>
             <div className="card-content">
@@ -25,24 +25,30 @@ class SurveyList extends Component {
               <p className="right">
                 {new Date(survey.dateSent).toLocaleDateString()}
               </p>
-              {/* <span>
-                <span>Yes</span>
+              <div>
+                <span>Yes votes: {survey.yes} </span>
                 <svg width="300" height="12">
                   <rect
                     x="0"
                     y="0"
                     fill="#2196f3"
-                    width="300"
+                    width={(survey.yes / survey.recipientListCount) * 300}
                     height="12"
                   />
                 </svg>
-              </span> */}
-              <p>
-                Yes votes: {survey.yes}
-              </p>
-              <p>
-                No votes {survey.no}
-              </p>
+              </div>
+              <div>
+                <span>No votes: {survey.no} </span>
+                <svg width="300" height="12">
+                  <rect
+                    x="0"
+                    y="0"
+                    fill="#f44336"
+                    width={(survey.no / survey.recipientListCount) * 300}
+                    height="12"
+                  />
+                </svg>
+              </div>
             </div>
           </div>
         )
