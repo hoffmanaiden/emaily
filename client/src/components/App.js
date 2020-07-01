@@ -12,17 +12,19 @@ import SurveyNew from './surveys/SurveyNew';
 
 
 class App extends Component{
+
   componentDidMount(){
     this.props.fetchUser();
   }
   render(){
+    console.log(this.props);
     return(
       <div className="container">
         <Router>
           <div>
             <Header />
             <Route exact path="/" component={Landing} />
-            <Route exact path="/surveys" component={Dashboard} />
+            <Route path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
           </div>
         </Router>
@@ -31,4 +33,8 @@ class App extends Component{
   }
 }
 
-export default connect(null, actions)(App);
+function mapStateToProps(state){
+  return { auth: state.auth }
+}
+
+export default connect(mapStateToProps, actions)(App);

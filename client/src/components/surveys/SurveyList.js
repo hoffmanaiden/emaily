@@ -14,7 +14,6 @@ class SurveyList extends Component {
     return this.props.surveys
       .reverse()
       .map(survey => {
-        console.log(survey);
         return (
           <div className="card" key={survey._id}>
             <div className="card-content">
