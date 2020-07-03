@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions';
 // root of react
@@ -15,7 +15,11 @@ class App extends Component{
 
   componentDidMount(){
     this.props.fetchUser();
+    if(this.props.auth){
+      this.props.history.pushState(this.state, '/surveys')
+    }
   }
+
   render(){
     console.log(this.props);
     return(
@@ -23,7 +27,9 @@ class App extends Component{
         <Router>
           <div>
             <Header />
-            <Route exact path="/" component={Landing} />
+            <Route exact path="/">
+              {this.props.auth ? <Redirect to="/surveys"/> : <Landing />}
+            </Route>
             <Route exact path="/surveys" component={Dashboard} />
             <Route path="/surveys/new" component={SurveyNew} />
           </div>
