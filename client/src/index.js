@@ -6,6 +6,7 @@ import thunk from 'redux-thunk';
 
 import App from './components/App';
 import reducers from './reducers';
+import './style/index.css';
 
 // Development only
 // axios and window are needed to test api while
